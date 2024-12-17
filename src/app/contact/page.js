@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
-const HeroSection = dynamic(() => import("@/components/HeroSection"));
-const LoremIpsum = dynamic(() => import("@/components/LoremIpsum"));
+const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
+const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
 
 export const metadata = {
     title: "Contact | Responsive Template",

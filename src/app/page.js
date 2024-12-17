@@ -1,8 +1,9 @@
 import dynamic from "next/dynamic";
-import Logo from "@/components/Logo"; // Import the Logo component
 
-const HeroSection = dynamic(() => import("@/components/HeroSection"));
-const LoremIpsum = dynamic(() => import("@/components/LoremIpsum"));
+const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
+const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
+const TheDifference = dynamic(() => import("@/components/sections/TheDifference"));
+const Logo = dynamic(() => import("@/components/Logo"));
 
 export const metadata = {
     title: "Home | Houz2Home",
@@ -19,18 +20,18 @@ export default function Home() {
             <HeroSection
                 title={homeTitle}
                 subtitle={homeSubtitle}
-                image="/images/webp/h2h_home"
+                image="/images/webp/h2h_home.webp"
                 alt="Houz2Home Homepage Image"
             />
 
             <div className="page-container">
                 {/* Welcome Message */}
-                <div className="flex items-center justify-center gap-4 w-full relative">
-                    <h2 className="border-r-4 border-accent pr-4">
-                        Welcome to <span className="text-accent">Houz2Home</span>
-                    </h2>
+                <div className="flex items-center justify-center w-full relative mb-28">
                     <Logo width={150} height={134} /> {/* Dynamically switches based on theme */}
                 </div>
+
+                {/* The Difference Section */}
+                <TheDifference />
 
                 {/* Placeholder Text */}
                 <LoremIpsum />

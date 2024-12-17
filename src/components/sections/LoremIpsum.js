@@ -3,8 +3,6 @@ export default function LoremIpsum() {
         <>
             <article>
                 {/* Responsive text testing */}
-                <h2 className="mb-16 text-center">Style Examples</h2>
-
                 <h3 className="mb-4 ml-2">Section Header</h3>
                 <div className="mb-32 section-container">
                     <h2>H2 Header</h2>
