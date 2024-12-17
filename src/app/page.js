@@ -14,8 +14,8 @@ export default function Home() {
             <HeroSection
                 title="Welcome"
                 subtitle="to Doni&apos;s portfolio."
-                image="/images/webp/wf_home"
-                alt="Watercolor flowers"
+                image="/images/webp/h2h_home"
+                alt="Houz2Home Homepage Image"
             />
 
             <div className="page-container">
