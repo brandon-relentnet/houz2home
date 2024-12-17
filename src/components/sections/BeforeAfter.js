@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const BeforeAfter = () => {
     return (
-        <section className="py-12 px-4 md:px-8 lg:px-16 mb-28">
+        <section className="py-12 px-4 md:px-8 lg:px-16mb-12 lg:mb-28">
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-center">Before & After</h2>
                 <p className="text-center max-w-xl mx-auto mb-8">

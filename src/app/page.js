@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 
 const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
-const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
 const TheDifference = dynamic(() => import("@/components/sections/TheDifference"));
 const OurServices = dynamic(() => import("@/components/sections/OurServices"));
 const BeforeAfter = dynamic(() => import("@/components/sections/BeforeAfter"));
@@ -31,8 +30,8 @@ export default function Home() {
 
             <div className="page-container">
                 {/* Welcome Message */}
-                <div className="flex items-center justify-center w-full relative mb-28">
-                    <Logo width={150} height={134} /> {/* Dynamically switches based on theme */}
+                <div className="flex items-center justify-center w-full relative mb-12 lg:mb-28">
+                    <Logo /> {/* Dynamically switches based on theme */}
                 </div>
 
                 {/* The Difference Section */}
@@ -54,9 +53,6 @@ export default function Home() {
             <div className="page-container">
                 {/* Contact CTA Section */}
                 <ContactCTA />
-
-                {/* Placeholder Text */}
-                <LoremIpsum />
             </div>
         </>
     );

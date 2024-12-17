@@ -85,7 +85,7 @@ const Testimonials = () => {
                         <motion.div
                             key={page}
                             className="absolute flex flex-col items-center justify-center text-center"
-                            style={{ width: '100%', maxWidth: '600px' }} // Control content width here
+                            style={{ width: '100%', maxWidth: '750px' }} // Control content width here
                             custom={direction}
                             variants={variants}
                             initial="enter"
@@ -120,13 +120,13 @@ const Testimonials = () => {
 
                 {/* Navigation Buttons: place them at the section level so they are at the full width */}
                 <div
-                    className="absolute top-1/2 transform -translate-y-1/2 left-8 cursor-pointer"
+                    className="absolute top-1/2 transform -translate-y-1/2 left-8 cursor-pointer z-10"
                     onClick={() => paginate(-1)}
                 >
                     <span className="text-3xl font-bold hover:opacity-80 transition-opacity">&#10094;</span>
                 </div>
                 <div
-                    className="absolute top-1/2 transform -translate-y-1/2 right-8 cursor-pointer"
+                    className="absolute top-1/2 transform -translate-y-1/2 right-8 cursor-pointer z-10"
                     onClick={() => paginate(1)}
                 >
                     <span className="text-3xl font-bold hover:opacity-80 transition-opacity">&#10095;</span>

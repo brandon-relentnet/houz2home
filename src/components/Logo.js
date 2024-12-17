@@ -26,9 +26,9 @@ const Logo = ({ width, height }) => {
             <Image
                 src={logoSrc}
                 alt="Houz2Home Logo"
-                width={width}
-                height={height}
-                style={{ width: "auto", height: "auto" }}
+                width={250}
+                height={223}
+                style={{ width: "100%", height: "auto" }}
             />
         </motion.div>
     );

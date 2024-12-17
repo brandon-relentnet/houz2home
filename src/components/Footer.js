@@ -3,7 +3,7 @@ export default function Footer() {
     return (
         <footer>
             <div>
-                © {currentYear} [Your Name]
+                © {currentYear} Houz2Home <span className="italic text-subtext0">All rights reserved</span>
             </div>
         </footer>
     );
