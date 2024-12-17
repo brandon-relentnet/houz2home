@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function TheDifference() {
     return (
-        <section className="flex flex-col lg:flex-row items-stretch justify-center gap-10 lg:gap-6 border-2 border-yellow mb-28">
+        <section className="flex flex-col lg:flex-row items-stretch justify-center gap-10 lg:gap-6 mb-28">
             {/* Image Column */}
             <div className="lg:w-1/2 flex justify-center items-center">
                 <Image

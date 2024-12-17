@@ -5,6 +5,7 @@ const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
 const TheDifference = dynamic(() => import("@/components/sections/TheDifference"));
 const OurServices = dynamic(() => import("@/components/sections/OurServices"));
 const BeforeAfter = dynamic(() => import("@/components/sections/BeforeAfter"));
+const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs"));
 const Logo = dynamic(() => import("@/components/Logo"));
 
 export const metadata = {
@@ -40,6 +41,9 @@ export default function Home() {
 
                 {/* Before & After Section */}
                 <BeforeAfter />
+
+                {/* Why Choose Us Section */}
+                <WhyChooseUs />
 
                 {/* Placeholder Text */}
                 <LoremIpsum />
