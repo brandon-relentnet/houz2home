@@ -44,7 +44,10 @@ const ServicesGrid = () => {
     return (
         <section className="py-12 px-4 md:px-8 lg:px-16 mb-28">
             <div className="max-w-7xl mx-auto">
-                <h2 className='text-center mb-8'>Our Services</h2>
+                <h2 className='text-center'>Our Expertise, Your Dream Home</h2>
+                <p className="text-center max-w-xl mx-auto mb-8">
+                    Explore our wide range of services designed to bring your renovation vision to life.
+                </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                     {services.map((service, index) => (
                         <div

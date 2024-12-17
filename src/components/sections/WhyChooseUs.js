@@ -27,7 +27,10 @@ const WhyChooseUs = () => {
     return (
         <section className="py-12 px-4 md:px-8 mb-28">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-center mb-8">Why Choose Us?</h2>
+                <h2 className='text-center'>Why Homeowners Trust Us</h2>
+                <p className="text-center max-w-xl mx-auto mb-8">
+                    Unmatched craftsmanship, personalized service, and proven results.
+                </p>
                 <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-4 gap-10">
                     {features.map((feature, index) => (
                         <div

@@ -11,7 +11,7 @@ const BeforeAfter = () => {
                 <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
                     {/* Before Image */}
                     <div className="w-full md:w-1/2">
-                        <div className="relative rounded-lg overflow-hidden shadow-lg border-2 border-transparent hover:border-accent transition duration-300">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg">
                             <Image
                                 src="/images/webp/h2h_before.webp"
                                 alt="Before Renovation"
@@ -19,7 +19,7 @@ const BeforeAfter = () => {
                                 height={400}
                                 className="object-cover w-full h-auto"
                             />
-                            <div className="absolute bottom-0 left-0 bg-overlay0 bg-opacity-60 text-text px-3 py-1 rounded-tr-lg">
+                            <div className="absolute bottom-0 left-0 bg-overlay0 bg-opacity-60 text-text px-3 py-1 rounded-tr-lg pointer-events-none">
                                 Before
                             </div>
                         </div>
@@ -27,7 +27,7 @@ const BeforeAfter = () => {
 
                     {/* After Image */}
                     <div className="w-full md:w-1/2">
-                        <div className="relative rounded-lg overflow-hidden shadow-lg border-2 border-transparent hover:border-accent transition duration-300">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg">
                             <Image
                                 src="/images/webp/h2h_after.webp"
                                 alt="After Renovation"
@@ -35,7 +35,7 @@ const BeforeAfter = () => {
                                 height={400}
                                 className="object-cover w-full h-auto"
                             />
-                            <div className="absolute bottom-0 left-0 bg-overlay0 bg-opacity-60 text-text px-3 py-1 rounded-tr-lg">
+                            <div className="absolute bottom-0 left-0 bg-overlay0 bg-opacity-60 text-text px-3 py-1 rounded-tr-lg pointer-events-none">
                                 After
                             </div>
                         </div>

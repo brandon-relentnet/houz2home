@@ -6,6 +6,8 @@ const TheDifference = dynamic(() => import("@/components/sections/TheDifference"
 const OurServices = dynamic(() => import("@/components/sections/OurServices"));
 const BeforeAfter = dynamic(() => import("@/components/sections/BeforeAfter"));
 const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs"));
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials"));
+const ContactCTA = dynamic(() => import("@/components/sections/ContactCTA"));
 const Logo = dynamic(() => import("@/components/Logo"));
 
 export const metadata = {
@@ -44,6 +46,14 @@ export default function Home() {
 
                 {/* Why Choose Us Section */}
                 <WhyChooseUs />
+            </div>
+
+            {/* Testimonials Section */}
+            <Testimonials />
+
+            <div className="page-container">
+                {/* Contact CTA Section */}
+                <ContactCTA />
 
                 {/* Placeholder Text */}
                 <LoremIpsum />
