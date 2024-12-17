@@ -4,6 +4,7 @@ const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
 const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
 const TheDifference = dynamic(() => import("@/components/sections/TheDifference"));
 const OurServices = dynamic(() => import("@/components/sections/OurServices"));
+const BeforeAfter = dynamic(() => import("@/components/sections/BeforeAfter"));
 const Logo = dynamic(() => import("@/components/Logo"));
 
 export const metadata = {
@@ -36,6 +37,9 @@ export default function Home() {
 
                 {/* Our Services Section */}
                 <OurServices />
+
+                {/* Before & After Section */}
+                <BeforeAfter />
 
                 {/* Placeholder Text */}
                 <LoremIpsum />
