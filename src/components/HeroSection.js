@@ -22,7 +22,7 @@ export default function HeroSection({ title, subtitle, image, alt }) {
       </div>
       <div className="absolute text-center z-10 text-text">
         <h1>{title}</h1>
-        <h2>{subtitle}</h2>
+        <h3>{subtitle}</h3>
       </div>
     </section>
   );

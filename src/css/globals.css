@@ -11,11 +11,11 @@ body {
 }
 
 :root {
-  --accent: var(--pink);
+  --accent: var(--blue);
 }
 
 .page-container {
-  @apply text-left w-2/3 mx-auto mb-20;
+  @apply text-left w-2/3 mx-auto my-28;
 }
 .section-container {
   @apply bg-surface0 p-4 rounded-lg shadow-lg;

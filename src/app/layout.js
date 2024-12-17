@@ -7,8 +7,8 @@ const Navbar = dynamic(() => import('@/components/navbar/Navbar'));
 
 /* Set the title and description for the website */
 export const metadata = {
-  title: "Responsive Template",
-  description: "Created by Doni",
+  title: "Houz2Home",
+  description: "The Difference is in the Details.",
 };
 
 export default function RootLayout({ children }) {

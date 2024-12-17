@@ -20,17 +20,19 @@ const ThemeSwitch = () => {
   }
 
   return (
-    <motion.button
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      aria-label="change theme"
-      className='text-text text-3xl hover:text-subtext0'
-    >
-      {theme === 'light' ? <FaSun /> : <FaMoon />}
-    </motion.button>
+    <>
+      <motion.button
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        aria-label="change theme"
+        className='text-text text-3xl hover:text-subtext0'
+      >
+        {theme === 'light' ? <FaSun /> : <FaMoon />}
+      </motion.button>
+    </>
   );
 };
 
