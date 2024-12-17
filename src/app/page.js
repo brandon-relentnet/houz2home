@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
 const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
 const TheDifference = dynamic(() => import("@/components/sections/TheDifference"));
+const OurServices = dynamic(() => import("@/components/sections/OurServices"));
 const Logo = dynamic(() => import("@/components/Logo"));
 
 export const metadata = {
@@ -32,6 +33,9 @@ export default function Home() {
 
                 {/* The Difference Section */}
                 <TheDifference />
+
+                {/* Our Services Section */}
+                <OurServices />
 
                 {/* Placeholder Text */}
                 <LoremIpsum />

@@ -29,7 +29,6 @@ const Logo = ({ width, height }) => {
                 width={width}
                 height={height}
                 style={{ width: "auto", height: "auto" }}
-                priority
             />
         </motion.div>
     );

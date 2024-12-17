@@ -3,16 +3,15 @@ import Image from "next/image";
 export default function HeroSection({ title, subtitle, image, alt }) {
   return (
     <section className="w-full h-screen flex items-center justify-center relative">
-      <div className="bg-base opacity-25">
+      <div className="bg-base opacity-25 w-full h-full absolute">
         <Image
-          src={image} // Largest version as fallback
+          src={image}
           alt={alt}
           className="object-cover"
-          fill // Fills the container
-          priority={true}
+          fill 
         />
       </div>
-      <div className="absolute text-center z-10 text-text">
+      <div className="absolute text-center z-10 text-text px-4">
         <h1>{title}</h1>
         <h3>{subtitle}</h3>
       </div>
