@@ -8,7 +8,7 @@ const ContactCTA = () => {
                 </p>
                 <a
                     href="/contact"
-                    className="inline-block bg-accent text-base px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-200"
+                    className="inline-block bg-accent text-base font-semibold px-6 py-3 rounded-lg hover:opacity-60 transition-opacity duration-300"
                 >
                     Contact Us
                 </a>
