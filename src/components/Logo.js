@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const Logo = ({ width, height }) => {
+const Logo = () => {
     const [logoSrc, setLogoSrc] = useState("/images/logo/h2h_logo_dm.webp"); // Default for SSR
     const { theme } = useTheme();
 

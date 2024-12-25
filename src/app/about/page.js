@@ -6,7 +6,6 @@ import Testimonials from "@/components/sections/Testimonials";
 import ContactCTA from "@/components/sections/ContactCTA";
 
 const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
-const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
 
 const aboutTitle = <>About <span className="italic text-accent">Us</span></>;
 const aboutSubtitle = <>Crafting stories, one <span className="underline">detail</span> at a time.</>;

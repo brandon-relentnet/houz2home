@@ -4,7 +4,7 @@ const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
 const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
 
 const contactTitle = <>Get in <span className="italic text-accent">Touch</span></>;
-const contactSubtitle = <>Let's talk <span className="underline">details</span> and bring your vision to life.</>;
+const contactSubtitle = <>Let&apos;s talk <span className="underline">details</span> and bring your vision to life.</>;
 
 export const metadata = {
     title: "Contact | Houz2Home",
