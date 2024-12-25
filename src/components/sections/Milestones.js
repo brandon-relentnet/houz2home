@@ -27,7 +27,7 @@ import {
   
   const Milestones = () => {
     return (
-      <section className="py-12 px-4 md:px-8 lg:px-16 mb-12 lg:mb-28 bg-accent/5">
+      <section className="py-12 px-4 md:px-8 lg:px-16 mb-12 lg:mb-28">
         <div className="max-w-6xl mx-auto">
           {/* Heading & Intro */}
           <h2>Our Journey</h2>
