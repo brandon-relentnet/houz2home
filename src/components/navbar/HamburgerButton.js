@@ -2,7 +2,7 @@
 'use client';
 
 import { FiMenu, FiX } from 'react-icons/fi';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 
 const iconVariants = {
     open: { rotate: 90, scale: 1.2, transition: { duration: 0.3 } },

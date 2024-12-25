@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { FaSun, FaMoon } from "react-icons/fa";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
