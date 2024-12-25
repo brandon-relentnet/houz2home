@@ -9,13 +9,13 @@ const Testimonials = dynamic(() => import("@/components/sections/Testimonials"))
 const ContactCTA = dynamic(() => import("@/components/sections/ContactCTA"));
 const Logo = dynamic(() => import("@/components/Logo"));
 
+const homeTitle = <>From House to <span className="italic text-accent">Home</span></>;
+const homeSubtitle = <>The difference is in the <span className="underline">details.</span></>;
+
 export const metadata = {
     title: "Home | Houz2Home",
     description: "Turn your house into a home with Houz2Home.",
 };
-
-const homeTitle = <>From House to <span className="italic text-accent">Home</span></>;
-const homeSubtitle = <>The difference is in the <span className="underline">details.</span></>;
 
 export default function Home() {
     return (

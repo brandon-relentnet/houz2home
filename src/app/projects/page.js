@@ -1,27 +1,27 @@
 import dynamic from "next/dynamic";
-import PricingTable from "./PricingTable";
 
 const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
 const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
 
+const portfolioTitle = <>Our <span className="italic text-accent">Work</span></>;
+const portfolioSubtitle = <>Where <span className="underline">details</span> make all the difference.</>;
+
 export const metadata = {
-    title: "Projects | Responsive Template",
-    description: "Created by Doni",
+    title: "Projects | Houz2Home",
+    description: "View our portfolio of work.",
 };
 
 export default function Projects() {
     return (
         <>
             <HeroSection
-                title="Projects"
-                subtitle="Check &apos;em out."
-                image="/images/webp/wf_projects"
+                title={portfolioTitle}
+                subtitle={portfolioSubtitle}
+                image="/images/webp/h2h_portfolio.webp"
                 alt="Watercolor flowers"
             />
 
             <div className="page-container">
-                <PricingTable />
-
                 {/* Display some placeholder text */}
                 <LoremIpsum />
             </div>
