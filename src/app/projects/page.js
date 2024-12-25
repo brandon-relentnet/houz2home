@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 
+const Portfolio = dynamic(() => import("@/components/sections/Portfolio"));
 const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
 const LoremIpsum = dynamic(() => import("@/components/sections/LoremIpsum"));
 
@@ -22,6 +23,9 @@ export default function Projects() {
             />
 
             <div className="page-container">
+                {/* Portfolio Section */}
+                <Portfolio />
+                
                 {/* Display some placeholder text */}
                 <LoremIpsum />
             </div>
