@@ -1,4 +1,10 @@
-import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
+import {
+	createRootRoute,
+	Link,
+	Outlet,
+	useRouterState,
+} from "@tanstack/react-router";
+import { useEffect } from "react";
 import BackToTop from "@/components/BackToTop";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar/Navbar";
@@ -31,6 +37,16 @@ export const Route = createRootRoute({
 });
 
 function RootLayout() {
+	const pathname = useRouterState({
+		select: (s) => s.location.pathname,
+	});
+
+	useEffect(() => {
+		if (pathname) {
+			window.scrollTo({ top: 0, behavior: "instant" });
+		}
+	}, [pathname]);
+
 	return (
 		<>
 			<Navbar />
