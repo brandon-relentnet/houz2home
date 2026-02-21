@@ -11,19 +11,49 @@ const milestones: Milestone[] = [
 		year: "2015",
 		title: "Founded",
 		description:
-			"Launched as a two-person startup focusing on small-scale renovations.",
+			"Brent and Trish Harris launched Houz2Home as a two-person operation focused on small-scale residential renovations in Alpharetta.",
+	},
+	{
+		year: "2016",
+		title: "First Major Kitchen",
+		description:
+			"Completed our first full kitchen renovation \u2014 a project that defined our commitment to combining function with beauty.",
+	},
+	{
+		year: "2017",
+		title: "Full-Service Expansion",
+		description:
+			"Expanded our offerings to include bathroom renovations, flooring, and custom cabinetry. Brought on our first dedicated project coordinator.",
 	},
 	{
 		year: "2018",
-		title: "Major Project",
+		title: "Multi-Family Landmark",
 		description:
-			"Completed a multi-family renovation that elevated our brand reputation.",
+			"Completed a multi-family renovation project that elevated our brand reputation and proved we could handle complex, large-scale work.",
 	},
 	{
-		year: "2021",
-		title: "Growth & Expansion",
+		year: "2019",
+		title: "\u201CBest of Houzz\u201D Award",
 		description:
-			"Welcomed new team members and expanded operations to multiple cities.",
+			"Recognized for outstanding design and client service on the Houzz platform \u2014 our first major industry award.",
+	},
+	{
+		year: "2020",
+		title: "Adapting & Innovating",
+		description:
+			"Pioneered virtual consultations and contactless project management during the pandemic, keeping projects on track while prioritizing safety.",
+	},
+	{
+		year: "2022",
+		title: "200th Project Milestone",
+		description:
+			"Crossed 200 completed projects across Metro Atlanta, spanning kitchens, bathrooms, basements, closets, and whole-home renovations.",
+	},
+	{
+		year: "2025",
+		title: "Celebrating 10 Years",
+		description:
+			"A decade of craftsmanship. Expanded our team, opened new service areas, and continued our commitment to the details that make a house a home.",
 	},
 ];
 
@@ -41,15 +71,15 @@ export default function Milestones() {
 					<span className="label-text">Our Journey</span>
 					<h2 className="mt-4">How We Got Here</h2>
 					<p className="max-w-xl">
-						Take a walk down memory lane as we acknowledge the milestones that
-						shaped us.
+						A decade of growth, from a two-person startup to one of Metro
+						Atlanta&apos;s most trusted renovation teams.
 					</p>
 				</motion.div>
 
 				<div className="relative">
 					<div className="absolute left-[27px] top-0 bottom-0 w-px bg-rule" />
 
-					<div className="space-y-16">
+					<div className="space-y-14">
 						{milestones.map((milestone, i) => (
 							<motion.div
 								key={milestone.year}
@@ -57,7 +87,7 @@ export default function Milestones() {
 								initial={{ opacity: 0, x: -20 }}
 								whileInView={{ opacity: 1, x: 0 }}
 								viewport={{ once: true }}
-								transition={{ duration: 0.5, delay: i * 0.15 }}
+								transition={{ duration: 0.5, delay: i * 0.1 }}
 							>
 								<div className="absolute left-[20px] top-1 w-[15px] h-[15px] border-2 border-gold bg-dark rounded-full" />
 

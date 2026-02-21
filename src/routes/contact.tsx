@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ContactForm from "@/components/sections/ContactForm";
 import ContactInfo from "@/components/sections/ContactInfo";
+import FAQ from "@/components/sections/FAQ";
 import HeroSection from "@/components/sections/HeroSection";
 import Testimonials from "@/components/sections/Testimonials";
 
@@ -26,6 +27,7 @@ function Contact() {
 			/>
 			<ContactForm />
 			<ContactInfo />
+			<FAQ />
 			<Testimonials />
 		</>
 	);

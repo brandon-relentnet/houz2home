@@ -2,7 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import BeforeAfter from "@/components/sections/BeforeAfter";
 import ContactCTA from "@/components/sections/ContactCTA";
 import HeroSection from "@/components/sections/HeroSection";
+import OurProcess from "@/components/sections/OurProcess";
 import OurServices from "@/components/sections/OurServices";
+import Partners from "@/components/sections/Partners";
+import Stats from "@/components/sections/Stats";
 import Testimonials from "@/components/sections/Testimonials";
 import TheDifference from "@/components/sections/TheDifference";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
@@ -28,9 +31,12 @@ function Home() {
 			/>
 			<TheDifference />
 			<OurServices />
+			<OurProcess />
+			<Stats />
 			<BeforeAfter />
 			<WhyChooseUs />
 			<Testimonials />
+			<Partners />
 			<ContactCTA />
 		</>
 	);

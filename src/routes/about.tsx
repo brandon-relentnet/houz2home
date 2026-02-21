@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ContactCTA from "@/components/sections/ContactCTA";
+import FAQ from "@/components/sections/FAQ";
 import HeroSection from "@/components/sections/HeroSection";
 import Milestones from "@/components/sections/Milestones";
 import OurMission from "@/components/sections/OurMission";
+import ServiceAreas from "@/components/sections/ServiceAreas";
 import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
 
@@ -29,6 +31,8 @@ function About() {
 			<Team />
 			<OurMission />
 			<Milestones />
+			<ServiceAreas />
+			<FAQ />
 			<Testimonials />
 			<ContactCTA />
 		</>
