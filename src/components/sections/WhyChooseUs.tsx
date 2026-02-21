@@ -4,6 +4,7 @@ import {
 	ShieldCheckIcon,
 	StarIcon,
 } from "@heroicons/react/24/outline";
+import { motion } from "motion/react";
 import type { ComponentType, SVGProps } from "react";
 
 interface Feature {
@@ -39,26 +40,63 @@ const features: Feature[] = [
 	},
 ];
 
+const containerVariants = {
+	hidden: {},
+	show: {
+		transition: {
+			staggerChildren: 0.1,
+		},
+	},
+};
+
+const itemVariants = {
+	hidden: { opacity: 0, y: 20 },
+	show: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+	},
+};
+
 export default function WhyChooseUs() {
 	return (
-		<section className="py-12 px-4 md:px-8 mb-12 lg:mb-28">
+		<section className="px-6 md:px-10 py-24 lg:py-32 bg-dark">
 			<div className="max-w-7xl mx-auto">
-				<h2 className="text-center">Why Homeowners Trust Us</h2>
-				<p className="text-center max-w-xl mx-auto mb-8">
-					Unmatched craftsmanship, personalized service, and proven results.
-				</p>
-				<div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-4 gap-10">
+				<motion.div
+					className="text-center mb-16"
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6 }}
+				>
+					<span className="label-text">Why Us</span>
+					<h2 className="mt-4">Why Homeowners Trust Us</h2>
+					<p className="max-w-xl mx-auto">
+						Unmatched craftsmanship, personalized service, and proven results.
+					</p>
+				</motion.div>
+
+				<motion.div
+					className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-px bg-rule"
+					variants={containerVariants}
+					initial="hidden"
+					whileInView="show"
+					viewport={{ once: true, margin: "-80px" }}
+				>
 					{features.map((feature) => (
-						<div
+						<motion.div
 							key={feature.title}
-							className="bg-surface0 rounded-lg shadow-lg p-4 text-center hover:shadow-xl transition duration-300"
+							variants={itemVariants}
+							className="bg-dark p-8 text-center"
 						>
-							<feature.Icon className="h-12 w-12 text-accent mx-auto mb-4" />
-							<h5 className="font-semibold mb-2">{feature.title}</h5>
-							<p>{feature.description}</p>
-						</div>
+							<feature.Icon className="h-8 w-8 text-gold mx-auto mb-5" />
+							<h5 className="mb-3">{feature.title}</h5>
+							<p className="text-warm text-sm mb-0 leading-relaxed">
+								{feature.description}
+							</p>
+						</motion.div>
 					))}
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);

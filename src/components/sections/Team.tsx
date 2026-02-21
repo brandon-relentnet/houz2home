@@ -1,4 +1,4 @@
-import { UserCircleIcon } from "@heroicons/react/24/outline";
+import { motion } from "motion/react";
 
 interface TeamMember {
 	name: string;
@@ -10,36 +10,54 @@ const teamMembers: TeamMember[] = [
 	{
 		name: "Brent Harris",
 		role: "Co-Founder & Project Manager",
-		quote: "\u201CEvery detail deserves attention.\u201D",
+		quote: "Every detail deserves attention.",
 	},
 	{
 		name: "Trish Harris",
 		role: "Co-Founder & Lead Designer",
-		quote: "\u201CInnovative solutions for every space.\u201D",
+		quote: "Innovative solutions for every space.",
 	},
 ];
 
 export default function Team() {
 	return (
-		<section className="py-12 px-4 md:px-8 lg:px-16 mb-12 lg:mb-28">
-			<div className="max-w-7xl mx-auto">
-				<h2 className="text-center">Meet the Team</h2>
-				<p className="text-center max-w-xl mx-auto mb-8">
-					See the people behind the magic.
-				</p>
-				<div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-6">
-					{teamMembers.map((member) => (
-						<div
+		<section className="px-6 md:px-10 py-24 lg:py-32">
+			<div className="max-w-5xl mx-auto">
+				<motion.div
+					className="text-center mb-16"
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6 }}
+				>
+					<span className="label-text">Our Team</span>
+					<h2 className="mt-4">Meet the Team</h2>
+					<p className="max-w-xl mx-auto">
+						The people behind the craftsmanship.
+					</p>
+				</motion.div>
+
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+					{teamMembers.map((member, i) => (
+						<motion.div
 							key={member.name}
-							className="bg-surface0 rounded-lg shadow p-6 text-center hover:shadow-lg border-transparent hover:border-accent border-2 transition duration-300"
+							className="p-10 bg-dark border border-rule text-center group hover:border-gold/30 transition-colors duration-500"
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.5, delay: i * 0.15 }}
 						>
-							<div className="mb-3">
-								<UserCircleIcon className="h-14 w-14 text-accent mx-auto" />
+							<div className="w-16 h-16 mx-auto mb-6 rounded-full bg-dim border border-rule-light flex items-center justify-center">
+								<span className="text-gold font-display text-2xl">
+									{member.name.charAt(0)}
+								</span>
 							</div>
-							<h4>{member.name}</h4>
-							<p className="mt-1">{member.role}</p>
-							<p className="italic mt-2">{member.quote}</p>
-						</div>
+							<h4 className="mb-1">{member.name}</h4>
+							<p className="text-gold text-sm mb-4">{member.role}</p>
+							<p className="text-warm italic font-display text-lg mb-0">
+								&ldquo;{member.quote}&rdquo;
+							</p>
+						</motion.div>
 					))}
 				</div>
 			</div>

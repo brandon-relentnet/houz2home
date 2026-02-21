@@ -14,27 +14,23 @@ function About() {
 			<HeroSection
 				title={
 					<>
-						About <span className="italic text-accent">Us</span>
+						About <em className="text-gold">Us</em>
 					</>
 				}
 				subtitle={
 					<>
-						Crafting stories, one <span className="underline">detail</span> at a
+						Crafting stories, one <span className="text-gold">detail</span> at a
 						time.
 					</>
 				}
 				image="/images/webp/h2h_about.webp"
-				alt="Houz2Home About Us Image"
+				alt="Houz2Home team at work"
 			/>
-			<div className="page-container">
-				<Team />
-				<OurMission />
-				<Milestones />
-			</div>
+			<Team />
+			<OurMission />
+			<Milestones />
 			<Testimonials />
-			<div className="page-container">
-				<ContactCTA />
-			</div>
+			<ContactCTA />
 		</>
 	);
 }

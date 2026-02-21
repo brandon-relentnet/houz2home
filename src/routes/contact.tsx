@@ -12,22 +12,20 @@ function Contact() {
 			<HeroSection
 				title={
 					<>
-						Get in <span className="italic text-accent">Touch</span>
+						Get in <em className="text-gold">Touch</em>
 					</>
 				}
 				subtitle={
 					<>
-						Let's talk <span className="underline">details</span> and bring your
-						vision to life.
+						Let&apos;s talk <span className="text-gold">details</span> and bring
+						your vision to life.
 					</>
 				}
 				image="/images/webp/h2h_contact.webp"
-				alt="Houz2Home Contact Image"
+				alt="Houz2Home consultation meeting"
 			/>
-			<div className="page-container">
-				<ContactForm />
-				<ContactInfo />
-			</div>
+			<ContactForm />
+			<ContactInfo />
 			<Testimonials />
 		</>
 	);

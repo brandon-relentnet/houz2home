@@ -1,41 +1,66 @@
+import { motion } from "motion/react";
+
 export default function BeforeAfter() {
 	return (
-		<section className="py-12 px-4 md:px-8 lg:px-16 mb-12 lg:mb-28">
+		<section className="px-6 md:px-10 py-24 lg:py-32">
 			<div className="max-w-7xl mx-auto">
-				<h2 className="text-center">Before &amp; After</h2>
-				<p className="text-center max-w-xl mx-auto mb-8">
-					See the transformative difference, turning outdated or underutilized
-					spaces into inviting and functional areas you will love.
-				</p>
-				<div className="flex flex-col md:flex-row gap-8 justify-center items-center">
-					<div className="w-full md:w-1/2">
-						<div className="relative rounded-lg overflow-hidden shadow-lg">
-							<img
-								src="/images/webp/h2h_before.webp"
-								alt="Before Renovation"
-								width={600}
-								height={400}
-								className="object-cover w-full h-auto"
-							/>
-							<div className="absolute bottom-0 left-0 bg-overlay0 bg-opacity-60 text-text px-3 py-1 rounded-tr-lg pointer-events-none">
+				<motion.div
+					className="text-center mb-16"
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6 }}
+				>
+					<span className="label-text">Transformations</span>
+					<h2 className="mt-4">Before &amp; After</h2>
+					<p className="max-w-xl mx-auto">
+						See the transformative difference &mdash; turning outdated spaces
+						into inviting, functional areas you will love.
+					</p>
+				</motion.div>
+
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<motion.div
+						className="relative overflow-hidden group"
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.6 }}
+					>
+						<img
+							src="/images/webp/h2h_before.webp"
+							alt="Space before renovation"
+							className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+							width={600}
+							height={400}
+						/>
+						<div className="absolute bottom-0 left-0 px-4 py-2 bg-night/80 backdrop-blur-sm">
+							<span className="text-xs font-semibold tracking-[0.15em] uppercase text-cream/70">
 								Before
-							</div>
+							</span>
 						</div>
-					</div>
-					<div className="w-full md:w-1/2">
-						<div className="relative rounded-lg overflow-hidden shadow-lg">
-							<img
-								src="/images/webp/h2h_after.webp"
-								alt="After Renovation"
-								width={600}
-								height={400}
-								className="object-cover w-full h-auto"
-							/>
-							<div className="absolute bottom-0 left-0 bg-overlay0 bg-opacity-60 text-text px-3 py-1 rounded-tr-lg pointer-events-none">
+					</motion.div>
+
+					<motion.div
+						className="relative overflow-hidden group"
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.6, delay: 0.15 }}
+					>
+						<img
+							src="/images/webp/h2h_after.webp"
+							alt="Space after renovation"
+							className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+							width={600}
+							height={400}
+						/>
+						<div className="absolute bottom-0 left-0 px-4 py-2 bg-night/80 backdrop-blur-sm">
+							<span className="text-xs font-semibold tracking-[0.15em] uppercase text-gold">
 								After
-							</div>
+							</span>
 						</div>
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		</section>

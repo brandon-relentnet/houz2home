@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import type { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 
@@ -8,6 +9,9 @@ interface FormData {
 	phone: string;
 	message: string;
 }
+
+const inputClasses =
+	"w-full bg-dark border border-rule px-4 py-3 text-cream placeholder:text-mute focus:outline-none focus:border-gold/50 transition-colors duration-300";
 
 export default function ContactForm() {
 	const [formData, setFormData] = useState<FormData>({
@@ -70,103 +74,120 @@ export default function ContactForm() {
 	};
 
 	return (
-		<section className="py-12 px-4 md:px-8 lg:px-16 mb-12 lg:mb-28">
-			<h2 className="text-center">Contact Us</h2>
-			<p className="text-center max-w-xl mx-auto mb-8">
-				Send us a message and start the journey from transforming your house
-				into a <span className="italic">home</span>.
-			</p>
-			<form
-				onSubmit={handleSubmit}
-				className="grid grid-cols-1 gap-6 sm:grid-cols-2"
-			>
-				<div className="flex flex-col">
-					<label htmlFor="name" className="mb-1 font-semibold text-subtext1">
-						Name <span className="text-red">*</span>
-					</label>
-					<input
-						id="name"
-						name="name"
-						type="text"
-						value={formData.name}
-						onChange={handleChange}
-						placeholder="Enter your name"
-						className="bg-surface0 px-3 py-2 border border-surface1 rounded focus:outline-none focus:ring focus:ring-accent/50"
-					/>
-				</div>
-				<div className="flex flex-col">
-					<label htmlFor="email" className="mb-1 font-semibold text-subtext1">
-						Email <span className="text-red">*</span>
-					</label>
-					<input
-						id="email"
-						name="email"
-						type="email"
-						value={formData.email}
-						onChange={handleChange}
-						placeholder="you@example.com"
-						className="bg-surface0 px-3 py-2 border border-surface1 rounded focus:outline-none focus:ring focus:ring-accent/50"
-					/>
-				</div>
-				<div className="flex flex-col sm:col-span-2">
-					<label htmlFor="subject" className="mb-1 font-semibold text-subtext1">
-						Subject
-					</label>
-					<input
-						id="subject"
-						name="subject"
-						type="text"
-						value={formData.subject}
-						onChange={handleChange}
-						placeholder="How can we help you?"
-						className="bg-surface0 px-3 py-2 border border-surface1 rounded focus:outline-none focus:ring focus:ring-accent/50"
-					/>
-				</div>
-				<div className="flex flex-col sm:col-span-2">
-					<label htmlFor="phone" className="mb-1 font-semibold text-subtext1">
-						Phone
-					</label>
-					<input
-						id="phone"
-						name="phone"
-						type="tel"
-						value={formData.phone}
-						onChange={handleChange}
-						placeholder="(XXX) XXX-XXXX"
-						className="bg-surface0 px-3 py-2 border border-surface1 rounded focus:outline-none focus:ring focus:ring-accent/50"
-					/>
-				</div>
-				<div className="flex flex-col sm:col-span-2">
-					<label htmlFor="message" className="mb-1 font-semibold text-subtext1">
-						Message <span className="text-red">*</span>
-					</label>
-					<textarea
-						id="message"
-						name="message"
-						value={formData.message}
-						onChange={handleChange}
-						rows={5}
-						placeholder="Your message..."
-						className="bg-surface0 px-3 py-2 border border-surface1 rounded focus:outline-none focus:ring focus:ring-accent/50"
-					/>
-				</div>
-				{statusMessage && (
-					<div className="sm:col-span-2">
-						<p className="p-2 text-sm italic text-center text-accent bg-accent/10 rounded">
-							{statusMessage}
-						</p>
+		<section className="px-6 md:px-10 py-24 lg:py-32">
+			<div className="max-w-3xl mx-auto">
+				<motion.div
+					className="text-center mb-16"
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6 }}
+				>
+					<span className="label-text">Get in Touch</span>
+					<h2 className="mt-4">Send Us a Message</h2>
+					<p className="max-w-xl mx-auto">
+						Start the journey of transforming your house into a <em>home</em>.
+					</p>
+				</motion.div>
+
+				<motion.form
+					onSubmit={handleSubmit}
+					className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6, delay: 0.2 }}
+				>
+					<div>
+						<label htmlFor="name" className="label-text mb-2 block">
+							Name <span className="text-gold">*</span>
+						</label>
+						<input
+							id="name"
+							name="name"
+							type="text"
+							value={formData.name}
+							onChange={handleChange}
+							placeholder="Your name"
+							className={inputClasses}
+						/>
 					</div>
-				)}
-				<div className="flex justify-end sm:col-span-2">
-					<button
-						type="submit"
-						disabled={loading}
-						className="inline-block bg-accent text-base font-semibold px-6 py-3 rounded-lg hover:opacity-60 transition-opacity duration-300 disabled:opacity-50"
-					>
-						{loading ? "Sending..." : "Send Message"}
-					</button>
-				</div>
-			</form>
+					<div>
+						<label htmlFor="email" className="label-text mb-2 block">
+							Email <span className="text-gold">*</span>
+						</label>
+						<input
+							id="email"
+							name="email"
+							type="email"
+							value={formData.email}
+							onChange={handleChange}
+							placeholder="you@example.com"
+							className={inputClasses}
+						/>
+					</div>
+					<div className="sm:col-span-2">
+						<label htmlFor="subject" className="label-text mb-2 block">
+							Subject
+						</label>
+						<input
+							id="subject"
+							name="subject"
+							type="text"
+							value={formData.subject}
+							onChange={handleChange}
+							placeholder="How can we help?"
+							className={inputClasses}
+						/>
+					</div>
+					<div className="sm:col-span-2">
+						<label htmlFor="phone" className="label-text mb-2 block">
+							Phone
+						</label>
+						<input
+							id="phone"
+							name="phone"
+							type="tel"
+							value={formData.phone}
+							onChange={handleChange}
+							placeholder="(XXX) XXX-XXXX"
+							className={inputClasses}
+						/>
+					</div>
+					<div className="sm:col-span-2">
+						<label htmlFor="message" className="label-text mb-2 block">
+							Message <span className="text-gold">*</span>
+						</label>
+						<textarea
+							id="message"
+							name="message"
+							value={formData.message}
+							onChange={handleChange}
+							rows={6}
+							placeholder="Tell us about your project..."
+							className={inputClasses}
+						/>
+					</div>
+
+					{statusMessage && (
+						<div className="sm:col-span-2">
+							<p className="text-sm text-center text-gold bg-gold/5 border border-gold/20 px-4 py-3 mb-0">
+								{statusMessage}
+							</p>
+						</div>
+					)}
+
+					<div className="sm:col-span-2 flex justify-end">
+						<button
+							type="submit"
+							disabled={loading}
+							className="px-8 py-3.5 bg-gold text-night text-sm font-semibold tracking-[0.1em] uppercase hover:bg-gold-light transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+						>
+							{loading ? "Sending..." : "Send Message"}
+						</button>
+					</div>
+				</motion.form>
+			</div>
 		</section>
 	);
 }

@@ -11,22 +11,20 @@ function Projects() {
 			<HeroSection
 				title={
 					<>
-						Our <span className="italic text-accent">Work</span>
+						Our <em className="text-gold">Work</em>
 					</>
 				}
 				subtitle={
 					<>
-						Where <span className="underline">details</span> make all the
+						Where <span className="text-gold">details</span> make all the
 						difference.
 					</>
 				}
 				image="/images/webp/h2h_portfolio.webp"
-				alt="Houz2Home Portfolio Image"
+				alt="Houz2Home completed renovation project"
 			/>
-			<div className="page-container">
-				<Portfolio />
-				<ContactCTA />
-			</div>
+			<Portfolio />
+			<ContactCTA />
 		</>
 	);
 }

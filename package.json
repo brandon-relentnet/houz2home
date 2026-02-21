@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@heroicons/react": "^2.2.0",
 		"@tanstack/react-router": "^1.132.0",
+		"motion": "^12.34.3",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"react-photo-album": "^3.0.2"

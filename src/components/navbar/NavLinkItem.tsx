@@ -5,24 +5,21 @@ interface NavLinkItemProps {
 	href: string;
 	currentPath: string;
 	children: ReactNode;
-	menuOpen?: boolean;
 }
 
 export default function NavLinkItem({
 	href,
 	currentPath,
 	children,
-	menuOpen,
 }: NavLinkItemProps) {
+	const isActive = currentPath === href;
+
 	return (
 		<li>
 			<Link
 				to={href}
-				aria-label={`${children} link`}
-				className={`block font-bold px-4 py-2 md:p-0 active:text-accent text-xl transition-colors ${menuOpen ? "text-center" : ""} ${
-					currentPath === href
-						? "text-accent hover:text-accent"
-						: "hover:text-subtext0"
+				className={`block px-5 py-3 md:py-2 text-[0.8rem] font-semibold tracking-[0.15em] uppercase transition-colors duration-300 ${
+					isActive ? "text-gold" : "text-cream/70 hover:text-cream"
 				}`}
 			>
 				{children}

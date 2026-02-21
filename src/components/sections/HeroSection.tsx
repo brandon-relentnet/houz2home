@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import type { ReactNode } from "react";
 
 interface HeroSectionProps {
@@ -14,37 +15,65 @@ export default function HeroSection({
 	alt,
 }: HeroSectionProps) {
 	return (
-		<section className="w-full h-screen flex items-center justify-center relative">
-			<div className="bg-base opacity-25 w-full h-full absolute">
-				<img src={image} alt={alt} className="object-cover w-full h-full" />
+		<section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+			{/* Ken Burns background */}
+			<div className="absolute inset-0">
+				<img
+					src={image}
+					alt={alt}
+					className="w-full h-full object-cover animate-[kenburns_20s_ease-in-out_infinite_alternate]"
+				/>
+				<div className="absolute inset-0 bg-night/75" />
+				<div className="absolute inset-0 bg-gradient-to-b from-night/40 via-transparent to-deep" />
 			</div>
-			<div className="absolute text-center z-10 text-text px-4">
-				<h1>{title}</h1>
-				<h3>{subtitle}</h3>
-			</div>
-			<div className="absolute bottom-0 left-0 w-full z-10">
-				<svg
-					viewBox="0 0 900 600"
-					xmlns="http://www.w3.org/2000/svg"
-					className="w-full h-80"
-					preserveAspectRatio="none"
-					role="img"
-					aria-label="Decorative wave transition"
+
+			{/* Content */}
+			<div className="relative z-10 text-center px-6 max-w-4xl [text-shadow:0_2px_30px_rgba(0,0,0,0.8),0_0_60px_rgba(0,0,0,0.5)]">
+				<motion.h1
+					initial={{ opacity: 0, y: 40 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
 				>
-					<path
-						d="M0 417L150 374L300 437L450 437L600 413L750 386L900 434L900 601L750 601L600 601L450 601L300 601L150 601L0 601Z"
-						className="fill-crust"
-					/>
-					<path
-						d="M0 453L150 470L300 502L450 452L600 486L750 433L900 491L900 601L750 601L600 601L450 601L300 601L150 601L0 601Z"
-						className="fill-mantle"
-					/>
-					<path
-						d="M0 495L150 519L300 519L450 517L600 543L750 519L900 532L900 601L750 601L600 601L450 601L300 601L150 601L0 601Z"
-						className="fill-base"
-					/>
-				</svg>
+					{title}
+				</motion.h1>
+
+				<motion.div
+					className="h-px bg-gold mx-auto my-8"
+					initial={{ width: 0 }}
+					animate={{ width: 64 }}
+					transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+				/>
+
+				<motion.p
+					className="text-lg md:text-xl text-cream font-light font-body mb-0"
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8, delay: 0.9 }}
+				>
+					{subtitle}
+				</motion.p>
 			</div>
+
+			{/* Scroll indicator */}
+			<motion.div
+				className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ delay: 1.5, duration: 0.6 }}
+			>
+				<span className="text-[0.65rem] font-semibold tracking-[0.25em] uppercase text-cream/40">
+					Scroll
+				</span>
+				<motion.div
+					className="w-px h-10 bg-gradient-to-b from-gold/60 to-transparent"
+					animate={{ scaleY: [1, 0.5, 1] }}
+					transition={{
+						duration: 2,
+						repeat: Number.POSITIVE_INFINITY,
+						ease: "easeInOut",
+					}}
+				/>
+			</motion.div>
 		</section>
 	);
 }

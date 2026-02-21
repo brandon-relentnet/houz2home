@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Logo from "@/components/Logo";
 import BeforeAfter from "@/components/sections/BeforeAfter";
 import ContactCTA from "@/components/sections/ContactCTA";
 import HeroSection from "@/components/sections/HeroSection";
@@ -16,30 +15,23 @@ function Home() {
 			<HeroSection
 				title={
 					<>
-						From House to <span className="italic text-accent">Home</span>
+						From House to <em className="text-gold">Home</em>
 					</>
 				}
 				subtitle={
 					<>
-						The difference is in the <span className="underline">details.</span>
+						The difference is in the <span className="text-gold">details</span>.
 					</>
 				}
 				image="/images/webp/h2h_home.webp"
-				alt="Houz2Home Homepage Image"
+				alt="Houz2Home renovated living space"
 			/>
-			<div className="page-container">
-				<div className="flex items-center justify-center w-full relative mb-12 lg:mb-28">
-					<Logo />
-				</div>
-				<TheDifference />
-				<OurServices />
-				<BeforeAfter />
-				<WhyChooseUs />
-			</div>
+			<TheDifference />
+			<OurServices />
+			<BeforeAfter />
+			<WhyChooseUs />
 			<Testimonials />
-			<div className="page-container">
-				<ContactCTA />
-			</div>
+			<ContactCTA />
 		</>
 	);
 }

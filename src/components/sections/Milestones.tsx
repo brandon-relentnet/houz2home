@@ -1,15 +1,9 @@
-import {
-	BriefcaseIcon,
-	CalendarIcon,
-	UserGroupIcon,
-} from "@heroicons/react/24/outline";
-import type { ComponentType, SVGProps } from "react";
+import { motion } from "motion/react";
 
 interface Milestone {
 	year: string;
 	title: string;
 	description: string;
-	Icon: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
 const milestones: Milestone[] = [
@@ -18,45 +12,63 @@ const milestones: Milestone[] = [
 		title: "Founded",
 		description:
 			"Launched as a two-person startup focusing on small-scale renovations.",
-		Icon: CalendarIcon,
 	},
 	{
 		year: "2018",
 		title: "Major Project",
 		description:
 			"Completed a multi-family renovation that elevated our brand reputation.",
-		Icon: BriefcaseIcon,
 	},
 	{
 		year: "2021",
 		title: "Growth & Expansion",
 		description:
 			"Welcomed new team members and expanded operations to multiple cities.",
-		Icon: UserGroupIcon,
 	},
 ];
 
 export default function Milestones() {
 	return (
-		<section className="py-12 px-4 md:px-8 lg:px-16 mb-12 lg:mb-28">
-			<div className="max-w-6xl mx-auto">
-				<h2>Our Journey</h2>
-				<p className="max-w-xl mb-8">
-					Take a walk down memory lane as we acknowledge how we got here.
-				</p>
-				<div className="relative border-l-4 border-accent pl-24 space-y-12">
-					{milestones.map((milestone) => (
-						<div key={milestone.year} className="relative group pt-2">
-							<div className="absolute -left-16 top-4 flex items-center justify-center w-12 h-12 rounded-full bg-surface0 border-2 border-accent shadow-md group-hover:bg-accent transition-colors">
-								<milestone.Icon className="w-6 h-6 text-accent group-hover:text-surface0 transition-colors" />
-							</div>
-							<h3 className="mb-1">{milestone.year}</h3>
-							<h4 className="group-hover:text-accent transition duration-300">
-								{milestone.title}
-							</h4>
-							<p className="mt-1">{milestone.description}</p>
-						</div>
-					))}
+		<section className="px-6 md:px-10 py-24 lg:py-32 bg-dark border-y border-rule">
+			<div className="max-w-4xl mx-auto">
+				<motion.div
+					className="mb-16"
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6 }}
+				>
+					<span className="label-text">Our Journey</span>
+					<h2 className="mt-4">How We Got Here</h2>
+					<p className="max-w-xl">
+						Take a walk down memory lane as we acknowledge the milestones that
+						shaped us.
+					</p>
+				</motion.div>
+
+				<div className="relative">
+					<div className="absolute left-[27px] top-0 bottom-0 w-px bg-rule" />
+
+					<div className="space-y-16">
+						{milestones.map((milestone, i) => (
+							<motion.div
+								key={milestone.year}
+								className="relative pl-20"
+								initial={{ opacity: 0, x: -20 }}
+								whileInView={{ opacity: 1, x: 0 }}
+								viewport={{ once: true }}
+								transition={{ duration: 0.5, delay: i * 0.15 }}
+							>
+								<div className="absolute left-[20px] top-1 w-[15px] h-[15px] border-2 border-gold bg-dark rounded-full" />
+
+								<span className="text-gold font-display text-3xl">
+									{milestone.year}
+								</span>
+								<h4 className="mt-2 mb-2">{milestone.title}</h4>
+								<p className="text-warm mb-0">{milestone.description}</p>
+							</motion.div>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

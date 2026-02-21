@@ -1,95 +1,155 @@
-import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/outline";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 const testimonials = [
 	{
 		name: "Emily Davis",
 		feedback:
-			"\u201CThe kitchen remodel turned out absolutely stunning. Every detail, from the cabinetry to the fixtures, was thoughtfully designed and perfectly executed. I love how they managed to combine functionality with beauty. The kitchen has truly become the heart of our home.\u201D",
+			"The kitchen remodel turned out absolutely stunning. Every detail, from the cabinetry to the fixtures, was thoughtfully designed and perfectly executed. I love how they managed to combine functionality with beauty. The kitchen has truly become the heart of our home.",
 	},
 	{
 		name: "Michael Thompson",
 		feedback:
-			"\u201CThe entire renovation process felt easy and straightforward. From the initial design consultation to the finishing touches, everything was handled with care and precision. I really appreciated the personal touch and how they listened to exactly what we wanted.\u201D",
+			"The entire renovation process felt easy and straightforward. From the initial design consultation to the finishing touches, everything was handled with care and precision. I really appreciated the personal touch and how they listened to exactly what we wanted.",
 	},
 	{
 		name: "Sarah Wilson",
 		feedback:
-			"\u201CI couldn\u2019t believe how they transformed our outdated bathroom into a gorgeous, spa-like retreat. It\u2019s not just about how it looks\u2014though it\u2019s beautiful\u2014it\u2019s also so much more functional and practical for our needs. I can\u2019t stop showing it off!\u201D",
+			"I couldn\u2019t believe how they transformed our outdated bathroom into a gorgeous, spa-like retreat. It\u2019s not just about how it looks \u2014 though it\u2019s beautiful \u2014 it\u2019s also so much more functional and practical for our needs.",
 	},
 	{
 		name: "David Martinez",
 		feedback:
-			"\u201CThe attention to detail throughout the project was impressive. Every small touch felt intentional, and it shows in the final result. I felt like I was in good hands from start to finish, and now I have a living room I\u2019m proud to host guests in.\u201D",
+			"The attention to detail throughout the project was impressive. Every small touch felt intentional, and it shows in the final result. I felt like I was in good hands from start to finish, and now I have a living room I\u2019m proud to host guests in.",
 	},
 	{
 		name: "Lisa Brown",
 		feedback:
-			"\u201CI had a vision for our master bedroom, but I wasn\u2019t sure how to make it a reality. The design was absolutely spot-on, and the finished space feels cozy, elegant, and totally \u2018us.\u2019 They really took the time to understand what we wanted and made it happen.\u201D",
+			"I had a vision for our master bedroom, but I wasn\u2019t sure how to make it a reality. The design was absolutely spot-on, and the finished space feels cozy, elegant, and totally \u2018us.\u2019 They really took the time to understand what we wanted.",
 	},
 	{
 		name: "Chris Walker",
 		feedback:
-			"\u201CI\u2019ve had a few renovations done before, but this was by far the smoothest experience. The craftsmanship is top-notch, and it\u2019s clear there\u2019s a lot of pride and skill that goes into the work. The difference it\u2019s made to our home is incredible.\u201D",
+			"I\u2019ve had a few renovations done before, but this was by far the smoothest experience. The craftsmanship is top-notch, and it\u2019s clear there\u2019s a lot of pride and skill that goes into the work. The difference it\u2019s made to our home is incredible.",
 	},
 	{
 		name: "Natalie Green",
 		feedback:
-			"\u201CWhat sets this experience apart is the thoughtfulness and care put into every step. I felt involved and heard throughout the process, and the results exceeded anything I imagined. It feels like my home, but better in every way.\u201D",
+			"What sets this experience apart is the thoughtfulness and care put into every step. I felt involved and heard throughout the process, and the results exceeded anything I imagined. It feels like my home, but better in every way.",
 	},
 ];
 
 export default function Testimonials() {
 	const [index, setIndex] = useState(0);
+	const [direction, setDirection] = useState(0);
 
-	const prev = () =>
-		setIndex((i) => (i - 1 + testimonials.length) % testimonials.length);
-	const next = () => setIndex((i) => (i + 1) % testimonials.length);
+	const navigate = (newDirection: number) => {
+		setDirection(newDirection);
+		setIndex(
+			(i) => (i + newDirection + testimonials.length) % testimonials.length,
+		);
+	};
 
 	const testimonial = testimonials[index];
 
 	return (
-		<>
-			<h2 className="text-center">Proof in Every Project</h2>
-			<p className="text-center max-w-xl mx-auto mb-8">
-				Don&apos;t just take our word for it &#8208; Hear what our Clients have
-				to say.
-			</p>
-			<section className="relative w-full h-[60vh] overflow-hidden flex items-center justify-center">
-				<div className="absolute inset-0 bg-mantle pointer-events-none shadow-inner" />
-				<div className="relative w-full h-full flex items-center justify-center px-4 md:px-8">
-					<div
-						className="flex flex-col items-center justify-center text-center transition-opacity duration-300"
-						style={{ maxWidth: "750px" }}
-					>
-						<ChatBubbleOvalLeftEllipsisIcon className="h-12 w-12 text-accent mb-6" />
-						<p className="text-xl md:text-2xl font-light italic mb-4 px-16">
-							{testimonial.feedback}
-						</p>
-						<span className="font-semibold">{testimonial.name}</span>
-					</div>
+		<section className="px-6 md:px-10 py-24 lg:py-32 bg-dark border-y border-rule overflow-hidden">
+			<div className="max-w-4xl mx-auto">
+				<motion.div
+					className="text-center mb-12"
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6 }}
+				>
+					<span className="label-text">Testimonials</span>
+					<h2 className="mt-4">Proof in Every Project</h2>
+					<p className="max-w-xl mx-auto">
+						Don&apos;t just take our word for it &mdash; hear what our clients
+						have to say.
+					</p>
+				</motion.div>
+
+				<div className="relative min-h-[250px] flex items-center justify-center">
+					<AnimatePresence mode="wait">
+						<motion.blockquote
+							key={index}
+							initial={{ opacity: 0, x: direction > 0 ? 60 : -60 }}
+							animate={{ opacity: 1, x: 0 }}
+							exit={{ opacity: 0, x: direction > 0 ? -60 : 60 }}
+							transition={{
+								duration: 0.4,
+								ease: [0.22, 1, 0.36, 1] as const,
+							}}
+							className="text-center"
+						>
+							<span className="block text-gold text-5xl font-display leading-none mb-6">
+								&ldquo;
+							</span>
+							<p className="text-lg md:text-xl text-cream/90 font-light font-display italic leading-relaxed mb-8">
+								{testimonial.feedback}
+							</p>
+							<footer>
+								<div className="h-px w-8 bg-gold mx-auto mb-4" />
+								<cite className="not-italic text-sm font-semibold tracking-[0.1em] uppercase text-warm">
+									{testimonial.name}
+								</cite>
+							</footer>
+						</motion.blockquote>
+					</AnimatePresence>
 				</div>
-				<button
-					type="button"
-					className="absolute top-1/2 -translate-y-1/2 left-8 cursor-pointer z-10"
-					onClick={prev}
-					aria-label="Previous testimonial"
-				>
-					<span className="text-3xl font-bold hover:opacity-80 transition-opacity">
-						&#10094;
+
+				<div className="flex items-center justify-center gap-6 mt-8">
+					<button
+						type="button"
+						onClick={() => navigate(-1)}
+						className="w-10 h-10 border border-rule hover:border-gold/50 flex items-center justify-center transition-colors duration-300 text-warm hover:text-cream"
+						aria-label="Previous testimonial"
+					>
+						<svg
+							className="w-4 h-4"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							strokeWidth={1.5}
+							role="img"
+							aria-label="Left arrow"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M15.75 19.5L8.25 12l7.5-7.5"
+							/>
+						</svg>
+					</button>
+					<span className="text-xs text-mute tabular-nums">
+						{String(index + 1).padStart(2, "0")} /{" "}
+						{String(testimonials.length).padStart(2, "0")}
 					</span>
-				</button>
-				<button
-					type="button"
-					className="absolute top-1/2 -translate-y-1/2 right-8 cursor-pointer z-10"
-					onClick={next}
-					aria-label="Next testimonial"
-				>
-					<span className="text-3xl font-bold hover:opacity-80 transition-opacity">
-						&#10095;
-					</span>
-				</button>
-			</section>
-		</>
+					<button
+						type="button"
+						onClick={() => navigate(1)}
+						className="w-10 h-10 border border-rule hover:border-gold/50 flex items-center justify-center transition-colors duration-300 text-warm hover:text-cream"
+						aria-label="Next testimonial"
+					>
+						<svg
+							className="w-4 h-4"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							strokeWidth={1.5}
+							role="img"
+							aria-label="Right arrow"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M8.25 4.5l7.5 7.5-7.5 7.5"
+							/>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</section>
 	);
 }

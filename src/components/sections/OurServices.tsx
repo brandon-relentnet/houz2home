@@ -6,6 +6,7 @@ import {
 	SparklesIcon,
 	WrenchIcon,
 } from "@heroicons/react/24/outline";
+import { motion } from "motion/react";
 import type { ComponentType, SVGProps } from "react";
 
 interface Service {
@@ -36,7 +37,7 @@ const services: Service[] = [
 	{
 		title: "Flooring Installation",
 		description:
-			"Add warmth and character to your home with high-quality hardwood or tile floors.",
+			"Add warmth and character with high-quality hardwood or tile floors.",
 		Icon: HomeModernIcon,
 	},
 	{
@@ -53,27 +54,64 @@ const services: Service[] = [
 	},
 ];
 
+const containerVariants = {
+	hidden: {},
+	show: {
+		transition: {
+			staggerChildren: 0.1,
+		},
+	},
+};
+
+const itemVariants = {
+	hidden: { opacity: 0, y: 30 },
+	show: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+	},
+};
+
 export default function OurServices() {
 	return (
-		<section className="py-12 px-4 md:px-8 lg:px-16 mb-12 lg:mb-28">
+		<section className="px-6 md:px-10 py-24 lg:py-32">
 			<div className="max-w-7xl mx-auto">
-				<h2 className="text-center">Our Expertise, Your Dream Home</h2>
-				<p className="text-center max-w-xl mx-auto mb-8">
-					Explore our wide range of services designed to bring your renovation
-					vision to life.
-				</p>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+				<motion.div
+					className="text-center mb-16"
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-80px" }}
+					transition={{ duration: 0.6 }}
+				>
+					<span className="label-text">What We Do</span>
+					<h2 className="mt-4">Our Expertise, Your Dream Home</h2>
+					<p className="max-w-xl mx-auto">
+						Explore our range of services designed to bring your renovation
+						vision to life.
+					</p>
+				</motion.div>
+
+				<motion.div
+					className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+					variants={containerVariants}
+					initial="hidden"
+					whileInView="show"
+					viewport={{ once: true, margin: "-80px" }}
+				>
 					{services.map((service) => (
-						<div
+						<motion.div
 							key={service.title}
-							className="bg-surface0 rounded-lg overflow-hidden shadow border-2 border-transparent hover:shadow-lg hover:border-accent transition duration-300 p-6 flex flex-col items-center text-center"
+							variants={itemVariants}
+							className="group p-8 bg-dark border border-rule hover:border-gold/30 transition-colors duration-500"
 						>
-							<service.Icon className="h-12 w-12 text-accent mb-4" />
-							<h5>{service.title}</h5>
-							<p>{service.description}</p>
-						</div>
+							<service.Icon className="h-8 w-8 text-gold mb-6" />
+							<h5 className="mb-3">{service.title}</h5>
+							<p className="text-warm text-sm mb-0 leading-relaxed">
+								{service.description}
+							</p>
+						</motion.div>
 					))}
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);

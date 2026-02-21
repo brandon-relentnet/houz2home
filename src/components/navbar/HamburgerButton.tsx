@@ -12,14 +12,14 @@ export default function HamburgerButton({
 	return (
 		<button
 			type="button"
-			className="block text-4xl md:hidden p-2 text-text hover:text-subtext0 transition"
+			className="md:hidden p-2 text-cream/70 hover:text-gold transition-colors duration-300"
 			onClick={toggleMenu}
-			aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+			aria-label={menuOpen ? "Close menu" : "Open menu"}
 		>
 			{menuOpen ? (
-				<XMarkIcon className="h-8 w-8" />
+				<XMarkIcon className="h-6 w-6" />
 			) : (
-				<Bars3Icon className="h-8 w-8" />
+				<Bars3Icon className="h-6 w-6" />
 			)}
 		</button>
 	);
