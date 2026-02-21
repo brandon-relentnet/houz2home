@@ -4,7 +4,6 @@ import ContactCTA from "@/components/sections/ContactCTA";
 import HeroSection from "@/components/sections/HeroSection";
 import OurProcess from "@/components/sections/OurProcess";
 import OurServices from "@/components/sections/OurServices";
-import Partners from "@/components/sections/Partners";
 import Stats from "@/components/sections/Stats";
 import Testimonials from "@/components/sections/Testimonials";
 import TheDifference from "@/components/sections/TheDifference";
@@ -36,7 +35,6 @@ function Home() {
 			<BeforeAfter />
 			<WhyChooseUs />
 			<Testimonials />
-			<Partners />
 			<ContactCTA />
 		</>
 	);
