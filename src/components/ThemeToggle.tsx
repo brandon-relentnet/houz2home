@@ -15,6 +15,15 @@ export default function ThemeToggle() {
 			root.classList.remove("dark");
 		}
 		localStorage.setItem("theme", dark ? "dark" : "light");
+
+		// Swap favicon to match current theme
+		const bg = dark ? "#0c0c0c" : "#f5f1ec";
+		const fg = dark ? "#c9a96e" : "#96722c";
+		const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="${bg}"/><path fill="${fg}" d="M9 6h3v20H9zm11 0h3v20h-3zM12 14h8v4h-8z"/></svg>`;
+		const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+		if (link) {
+			link.href = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+		}
 	}, [dark]);
 
 	return (
