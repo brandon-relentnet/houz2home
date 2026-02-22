@@ -23,12 +23,12 @@ export default function HeroSection({
 					alt={alt}
 					className="w-full h-full object-cover animate-[kenburns_20s_ease-in-out_infinite_alternate]"
 				/>
-				<div className="absolute inset-0 bg-night/75" />
-				<div className="absolute inset-0 bg-gradient-to-b from-night/40 via-transparent to-deep" />
+				<div className="absolute inset-0 bg-deep/75" />
+				<div className="absolute inset-0 bg-gradient-to-b from-deep/40 via-transparent to-deep" />
 			</div>
 
 			{/* Content */}
-			<div className="relative z-10 text-center px-6 max-w-4xl [text-shadow:0_2px_30px_rgba(0,0,0,0.8),0_0_60px_rgba(0,0,0,0.5)]">
+			<div className="relative z-10 text-center px-6 max-w-4xl [text-shadow:0_2px_30px_rgba(255,255,255,0.6),0_0_60px_rgba(255,255,255,0.3)] dark:[text-shadow:0_2px_30px_rgba(0,0,0,0.8),0_0_60px_rgba(0,0,0,0.5)]">
 				<motion.h1
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}

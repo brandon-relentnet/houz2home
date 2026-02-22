@@ -1,12 +1,36 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ── Design Tokens ── */
 
 @theme {
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
 
+  /* night is always dark (overlays, text-on-gold buttons) */
   --color-night: #070707;
+
+  /* Light mode defaults */
+  --color-deep: #f5f1ec;
+  --color-dark: #eae5de;
+  --color-dim: #e0dbd3;
+  --color-soft: #d4cfc6;
+
+  --color-cream: #1c1917;
+  --color-warm: #57524b;
+  --color-mute: #89847e;
+
+  --color-gold: #96722c;
+  --color-gold-light: #a88236;
+
+  --color-rule: #ddd8d0;
+  --color-rule-light: #cdc7bd;
+}
+
+/* ── Dark mode overrides ── */
+
+.dark {
   --color-deep: #0c0c0c;
   --color-dark: #151515;
   --color-dim: #1a1a1a;

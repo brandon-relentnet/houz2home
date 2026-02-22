@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import BackToTop from "@/components/BackToTop";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar/Navbar";
+import ThemeToggle from "@/components/ThemeToggle";
 
 function NotFound() {
 	return (
@@ -55,6 +56,7 @@ function RootLayout() {
 			</main>
 			<Footer />
 			<BackToTop />
+			<ThemeToggle />
 		</>
 	);
 }
