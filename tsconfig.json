@@ -1,6 +1,9 @@
 {
-	"include": ["**/*.ts", "**/*.tsx"],
+	"include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+	"exclude": ["dist", "node_modules"],
 	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
 		"target": "ES2022",
 		"jsx": "react-jsx",
 		"module": "ESNext",
