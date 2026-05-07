@@ -1,172 +1,135 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
-/* ── Design Tokens ── */
-
 @theme {
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+	--font-display: "Cormorant Garamond", Georgia, serif;
+	--font-brand: "Fraunces", Georgia, serif;
+	--font-body: "Plus Jakarta Sans", system-ui, sans-serif;
 
-  /* night is always dark (overlays, text-on-gold buttons) */
-  --color-night: #070707;
-
-  /* Light mode defaults */
-  --color-deep: #f5f1ec;
-  --color-dark: #eae5de;
-  --color-dim: #e0dbd3;
-  --color-soft: #d4cfc6;
-
-  --color-cream: #1c1917;
-  --color-warm: #57524b;
-  --color-mute: #89847e;
-
-  --color-gold: #96722c;
-  --color-gold-light: #a88236;
-
-  --color-rule: #ddd8d0;
-  --color-rule-light: #cdc7bd;
+	--color-night: #111111;
+	--color-deep: #1c1a17;
+	--color-dark: #25211d;
+	--color-dim: #4f463c;
+	--color-soft: #f4efe7;
+	--color-cream: #f7f2ea;
+	--color-warm: #d0c5b7;
+	--color-mute: #8c7f71;
+	--color-gold: #b88a3b;
+	--color-gold-light: #d3ae6a;
+	--color-rule: #3a332c;
+	--color-rule-light: #ded2c3;
 }
 
-/* ── Dark mode overrides ── */
+@layer base {
+	:root {
+		color: var(--color-deep);
+		background-color: var(--color-soft);
+		font-family: var(--font-body);
+		font-synthesis: none;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		scroll-behavior: smooth;
+	}
 
-.dark {
-  --color-deep: #0c0c0c;
-  --color-dark: #151515;
-  --color-dim: #1a1a1a;
-  --color-soft: #222222;
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 
-  --color-cream: #f0ece6;
-  --color-warm: #b5b0a9;
-  --color-mute: #7a756f;
+	html,
+	body,
+	#root {
+		min-height: 100%;
+	}
 
-  --color-gold: #c9a96e;
-  --color-gold-light: #d4b978;
+	body {
+		min-height: 100vh;
+		background:
+			radial-gradient(circle at top, rgba(184, 138, 59, 0.12), transparent 30%),
+			var(--color-soft);
+		color: var(--color-deep);
+	}
 
-  --color-rule: #1e1e1e;
-  --color-rule-light: #282828;
+	img {
+		display: block;
+		max-width: 100%;
+	}
+
+	button,
+	input,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	::selection {
+		background-color: var(--color-gold);
+		color: var(--color-cream);
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-display);
+		line-height: 1.05;
+		letter-spacing: -0.03em;
+		color: var(--color-deep);
+	}
+
+	p {
+		color: var(--color-dim);
+		line-height: 1.7;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-gold);
+		outline-offset: 3px;
+		border-radius: 0.25rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+
+		body {
+			background-image: none;
+		}
+	}
 }
 
-/* ── Base ── */
+@layer components {
+	.brand-wordmark {
+		font-family: var(--font-brand);
+		font-variant-numeric: lining-nums;
+		font-feature-settings: "lnum" 1;
+		letter-spacing: -0.02em;
+	}
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--color-deep);
-  color: var(--color-cream);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Noise texture overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.02;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-}
-
-::selection {
-  background-color: var(--color-gold);
-  color: var(--color-night);
-}
-
-/* ── Typography ── */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display);
-  color: var(--color-cream);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 300;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
-  font-weight: 400;
-  margin-bottom: 0.75rem;
-}
-
-h3 {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 400;
-  margin-bottom: 0.5rem;
-}
-
-h4 {
-  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-h5 {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-p {
-  font-size: 1.1875rem;
-  line-height: 1.8;
-  color: var(--color-warm);
-  margin-bottom: 1.5rem;
-}
-
-/* ── Utility Classes ── */
-
-.label-text {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-}
-
-/* ── Scrollbar ── */
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-deep);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-rule-light);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold);
-}
-
-/* ── Ken Burns ── */
-
-@keyframes kenburns {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.08);
-  }
+	.label-text {
+		font-family: var(--font-body);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--color-gold);
+	}
 }
